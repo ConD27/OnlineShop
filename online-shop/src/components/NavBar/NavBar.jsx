@@ -2,7 +2,7 @@ import { NavLink } from 'react-router-dom'
 import './navBar.scss'
 
 const NavBar = () => {
-  const linkIsActive = (isActive) => isActive ? 'nav-link active' : 'nav-link'
+  const linkIsActive = (isActive) => isActive ? 'nav-link' : 'nav-link'
 
   return (
     <nav className='navbar navbar-expand-lg bg-body-tertiary'>
@@ -18,19 +18,19 @@ const NavBar = () => {
               </NavLink>
             </li>
             <li className='nav-item'>
-              <a className='nav-link' href='#'>
-                Link
-              </a>
+              <NavLink to='/cart' className={(isActive) => linkIsActive(isActive)} aria-current='page'>
+                Cart
+              </NavLink>
             </li>
             <li className='nav-item'>
-              <a className='nav-link' href='#'>
-                Link
-              </a>
+              <NavLink to='/login' className={(isActive) => linkIsActive(isActive)} aria-current='page'>
+                Login
+              </NavLink>
             </li>
             <li className='nav-item'>
-              <a className='nav-link' href='#'>
-                Link
-              </a>
+              <NavLink to='/signup' className={(isActive) => linkIsActive(isActive)} aria-current='page'>
+                Sign up
+              </NavLink>
             </li>
           </ul>
           <form className='d-flex' role='search'>
