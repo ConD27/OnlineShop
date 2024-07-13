@@ -1,15 +1,28 @@
 import { useForm } from 'react-hook-form'
 import '@/styles/form.css'
 import logo from '@/assets/react.svg'
+import { registerUserService } from '@/services/userServices'
+import { useNavigate } from 'react-router-dom'
 
 const Signup = () => {
+  const navigate = useNavigate()
+
   const {
     register,
     handleSubmit,
     formState: { errors }
   } = useForm()
 
-  const onSubmit = (data) => console.log(data)
+  const onSubmit = async (data) => {
+    try {
+      const { status } = await registerUserService(data)
+      if (status === 201) {
+        navigate('/login')
+      }
+    } catch (error) {
+      console.error(error)
+    }
+  }
 
   return (
     <main className='form-signin w-100 m-auto'>
