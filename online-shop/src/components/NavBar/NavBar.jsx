@@ -1,6 +1,6 @@
 import { NavLink } from 'react-router-dom'
-import './navBar.scss'
 import { useAuthContext } from '@/hooks/useAuth'
+import './navBar.scss'
 
 const NavBar = () => {
   const { isAuth, logout } = useAuthContext()
