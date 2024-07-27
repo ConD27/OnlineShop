@@ -11,7 +11,7 @@ const NavBar = () => {
     <nav className='navbar navbar-expand-lg bg-body-tertiary'>
       <div className='container-fluid'>
         <NavLink to='/' className='navbar-brand'>
-          Online Shop
+          <img className='logo' style={{maxHeight: '50px'}} src='https://cdn-icons-png.flaticon.com/512/2649/2649213.png' alt='Online Shop' />
         </NavLink>
         <div className='collapse navbar-collapse' id='navbarSupportedContent'>
           <ul className='navbar-nav me-auto mb-2 mb-lg-0'>
@@ -69,6 +69,7 @@ const NavBar = () => {
               placeholder='Search'
               aria-label='Search'
             />
+            <div>Search results</div>
             <button className='btn btn-outline-success' type='submit'>
               Search
             </button>
