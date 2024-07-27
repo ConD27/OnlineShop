@@ -1,9 +1,14 @@
 import { NavLink } from 'react-router-dom'
 import { useAuthContext } from '@/hooks/useAuth'
+import { useState } from 'react'
 import './navBar.scss'
+import SearchBar from '../SearchBar/SearchBar'
+import SearchResultsList from '../SearchResultsList/SearchResultsList'
 
 const NavBar = () => {
   const { isAuth, logout } = useAuthContext()
+
+  const [results, setResults] = useState([])
 
   const linkIsActive = (isActive) => isActive ? 'nav-link' : 'nav-link'
 
@@ -62,18 +67,8 @@ const NavBar = () => {
                 )}
 
           </ul>
-          <form className='d-flex' role='search'>
-            <input
-              className='form-control me-2'
-              type='search'
-              placeholder='Search'
-              aria-label='Search'
-            />
-            <div>Search results</div>
-            <button className='btn btn-outline-success' type='submit'>
-              Search
-            </button>
-          </form>
+          <SearchBar setResults={setResults} />
+          <SearchResultsList results={results} />
         </div>
       </div>
     </nav>
